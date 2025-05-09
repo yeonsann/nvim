@@ -14,6 +14,7 @@ return {
     -- fill any relevant options here
     window = {
         position = "right",
-    }
+    },
+    reveal = true
   },
 }
