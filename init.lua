@@ -34,6 +34,7 @@ vim.cmd.colorscheme "catppuccin"
 vim.keymap.set('n', "<C-k>", vim.lsp.buf.code_action)
 vim.keymap.set('n', "gd", vim.lsp.buf.definition)
 vim.keymap.set('n', "ff", vim.lsp.buf.format)
+vim.keymap.set('n', "<C-n>", ':vsplit<CR>', { noremap = true, silent = true })
 
 
 vim.keymap.set('n', '<C-u>', ':Neotree toggle reveal<CR>', { noremap = true, silent = true })
