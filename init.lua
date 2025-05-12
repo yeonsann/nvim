@@ -36,6 +36,8 @@ vim.keymap.set('n', "gd", vim.lsp.buf.definition)
 vim.keymap.set('n', "ff", vim.lsp.buf.format)
 vim.keymap.set('n', "<C-n>", ':vsplit<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagnostic" })
+
 
 vim.keymap.set('n', '<C-u>', ':Neotree toggle reveal<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-i>', ':Neotree focus<CR>', { noremap = true, silent = true })
@@ -47,9 +49,27 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>jj', builtin.git_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 
+
+require('nvim-autopairs').setup {}
+
+
 -- ====================================
 --         lsp config
 -- ====================================
+--
+
+-- HTML
+vim.lsp.config['vscode-html-language-server'] = {
+     cmd = { 'vscode-html-language-server', '--stdio' },
+    filetypes = { 'html', 'templ' },
+    single_file_support = true,
+    settings = {},
+    init_options = {
+      provideFormatter = true,
+      embeddedLanguages = { css = true, javascript = true },
+      configurationSection = { 'html', 'css', 'javascript' },
+    }
+}
 
 -- TYPESCRIPT LSP
 vim.lsp.enable('typescript-language-server')
