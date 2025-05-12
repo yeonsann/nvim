@@ -20,9 +20,8 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 
 -- hide the cmdline behind the status bar
-vim.opt.cmdheight=1
-
-vim.opt.fillchars = { eob = ' ' }
+-- vim.opt.cmdheight=1
+-- vim.opt.fillchars = { eob = ' ' }
 
 -- colorscheme
 require('catppuccin').setup({
@@ -39,7 +38,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 
-vim.keymap.set('n', "<C-k>", vim.lsp.buf.code_action)
+-- vim.keymap.set('n', "<C-k>", vim.lsp.buf.code_action)
 vim.keymap.set('n', "gd", vim.lsp.buf.definition)
 vim.keymap.set('n', "ff", vim.lsp.buf.format)
 vim.keymap.set('n', "<C-n>", ':vsplit<CR>', { noremap = true, silent = true })
@@ -51,8 +50,18 @@ vim.keymap.set('n', '<C-u>', ':Neotree toggle reveal<CR>', { noremap = true, sil
 vim.keymap.set('n', '<C-i>', ':Neotree focus<CR>', { noremap = true, silent = true })
 
 
-require('todo-comments').setup {}
 
+-- code comments
+require('todo-comments').setup {}
+vim.keymap.set("x", "gcc", function() require("Comment.api").toggle.linewise(vim.fn.visualmode()) end, { noremap = true, silent = true })
+
+
+-- code action
+vim.keymap.set("n", "<C-k>", function()
+	require("tiny-code-action").code_action()
+end, { noremap = true, silent = true })
+
+--
 -- ====================================
 --         telescope config
 -- ====================================
