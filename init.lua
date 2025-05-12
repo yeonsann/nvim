@@ -31,6 +31,14 @@ require('catppuccin').setup({
 vim.cmd.colorscheme "catppuccin"
 
 
+-- Hide line numbers in terminal
+-- 
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  command = "setlocal nonumber norelativenumber signcolumn=no",
+})
+
+
 vim.keymap.set('n', "<C-k>", vim.lsp.buf.code_action)
 vim.keymap.set('n', "gd", vim.lsp.buf.definition)
 vim.keymap.set('n', "ff", vim.lsp.buf.format)
@@ -42,6 +50,9 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagn
 vim.keymap.set('n', '<C-u>', ':Neotree toggle reveal<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-i>', ':Neotree focus<CR>', { noremap = true, silent = true })
 
+
+require('todo-comments').setup {}
+
 -- ====================================
 --         telescope config
 -- ====================================
@@ -49,6 +60,12 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>jj', builtin.git_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 
+
+
+--
+-- TODO
+
+vim.keymap.set('n', "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent = true })
 
 require('nvim-autopairs').setup {}
 
