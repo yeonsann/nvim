@@ -91,7 +91,9 @@ require("mason").setup()
 require("mason-lspconfig").setup {
     automatic_enable = {
         "lua_ls",
-        "ts_ls"
+        "ts_ls",
+        "pyright",
+        "black"
     }
 }
 
