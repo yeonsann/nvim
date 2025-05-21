@@ -1,0 +1,10 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "unnamedplus",
+        "unamed",
+        "menu",
+        "menuone",
+        "noselect"
+    ]
+}
