@@ -44,6 +44,21 @@ end, { noremap = true, silent = true })
 -- TODO
 vim.keymap.set('n', "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent = true })
 
+-- Toggling terminal
+vim.keymap.set('n', "<C-t>", ":ToggleTerm<CR>", { noremap = true, silent = true })
+vim.keymap.set('t', "<C-t>", "<Cmd>ToggleTerm<CR>", { noremap = true, silent = true })
+
+
+
+-- ====================================
+--           toggle term config
+-- ====================================
+require('toggleterm').setup {
+    direction = 'float'
+}
+
+
+
 -- ====================================
 --         telescope config
 -- ====================================
@@ -60,7 +75,6 @@ require('mini.pairs').setup {}
 require('mini.comment').setup {}
 require('mini.statusline').setup {}
 require('mini.indentscope').setup {}
-require('mini.tabline').setup {}
 require('mini.diff').setup {
     view = {
         style = 'sign'
