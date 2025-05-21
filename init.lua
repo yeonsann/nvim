@@ -55,16 +55,18 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 -- ====================================
 --         plugin config
 -- ====================================
-
+require('mini.icons').setup {}
 require('mini.pairs').setup {}
 require('mini.comment').setup {}
 require('mini.statusline').setup {}
 require('mini.indentscope').setup {}
+require('mini.tabline').setup {}
 require('mini.diff').setup {
     view = {
         style = 'sign'
     }
 }
+require('mini.cursorword').setup {}
 
 -- ====================================
 --         lsp config
