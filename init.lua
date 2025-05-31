@@ -48,8 +48,6 @@ vim.keymap.set('n', "<leader>td", ":TodoTelescope<CR>", { noremap = true, silent
 vim.keymap.set('n', "<C-t>", ":ToggleTerm<CR>", { noremap = true, silent = true })
 vim.keymap.set('t', "<C-t>", "<Cmd>ToggleTerm<CR>", { noremap = true, silent = true })
 
-
-
 -- ====================================
 --           toggle term config
 -- ====================================
