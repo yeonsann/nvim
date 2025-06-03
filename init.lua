@@ -19,10 +19,10 @@ vim.opt.swapfile = false
 vim.opt.textwidth = 100
 
 -- colorscheme
-require('catppuccin').setup({
-    flavour = "frappe"
-});
-vim.cmd.colorscheme "catppuccin"
+-- require('catppuccin').setup({
+--     flavour = "frappe"
+-- });
+-- vim.cmd.colorscheme "catppuccin"
 
 -- ====================================
 --               keymaps
