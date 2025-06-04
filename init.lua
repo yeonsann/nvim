@@ -94,6 +94,7 @@ require("mason-lspconfig").setup {
         "black"
     }
 }
+require('flutter-tools').setup {}
 
 -- Hide line numbers in terminal
 vim.api.nvim_create_autocmd("TermOpen", {
