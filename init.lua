@@ -92,7 +92,8 @@ require("mason-lspconfig").setup {
         "ts_ls",
         "pyright",
         "black",
-        'jdtls'
+        'jdtls',
+        "cssls"
     }
 }
 require('flutter-tools').setup {}
