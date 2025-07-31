@@ -18,6 +18,9 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.textwidth = 100
 
+-- show line at column 80
+vim.opt.colorcolumn = "100"
+
 -- colorscheme
 -- require('catppuccin').setup({
 --     flavour = "frappe"
@@ -28,7 +31,10 @@ vim.opt.textwidth = 100
 --               keymaps
 -- ====================================
 vim.keymap.set('n', "gd", vim.lsp.buf.definition)
-vim.keymap.set('n', "ff", vim.lsp.buf.format)
+-- vim.keymap.set({'n', 'v'}, "ff", vim.lsp.buf.format)
+vim.keymap.set({'n', 'v'}, "ff", function() 
+    require("conform").format({ async = true, lsp_fallback=true})
+end, { desc = "Format file or range"})
 vim.keymap.set('n', "<C-n>", ':vsplit<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagnostic" })
@@ -80,7 +86,6 @@ require('mini.diff').setup {
 }
 require('mini.cursorword').setup {}
 
-
 require('nvim-ts-autotag').setup({
   opts = {
     -- Defaults
@@ -97,6 +102,16 @@ require('nvim-ts-autotag').setup({
     }
   }
 })
+
+require("conform").setup({
+    formatters_by_ft = {
+    typescriptreact = { "prettier" },
+    javascriptreact = { "prettier" },
+    typescript = { "prettier" },
+    javascript = { "prettier" },
+  },
+})
+
 
 -- ====================================
 --         lsp config
